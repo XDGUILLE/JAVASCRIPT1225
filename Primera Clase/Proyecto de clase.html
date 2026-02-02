@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bienvenido a mi Sitio Web</h1>
+    <p>Presiona los botones para ver la magia de JavaScript!</p>
+
+    <button onclick = "mostrarSaludo()">Saludar</button>
+    <button onclick = "mostrarFecha()">Ver Fecha</button>
+    <button onclick = "cambiarColor()">Cambiar Color (celeste)</button>
+    <button onclick = "cambiarColorMarron()">Cambiar Color (marron)</button>
+
+    <p id = "mensaje"></p>
+
+    <button onclick = "cambiarSaludo()">Cambiemos el saludo</button>
+
+    <script>
+        function mostrarSaludo(){
+            document.getElementById("mensaje").innerHTML = "Hola! Bienvenido a la programacion CAPULLO!";
+        }
+
+        function mostrarFecha(){
+            let fecha = new Date()
+            document.getElementById("mensaje").innerHTML = "La fecha y hora actual es: " + fecha.toLocaleDateString();
+        }
+
+        function cambiarColor(){
+            document.body.style.backgroundColor = "lightblue";
+        }
+
+        function cambiarColorMarron(){
+            document.body.style.backgroundColor = "saddLebrown";
+        }
+
+        function cambiarSaludo(){
+            document.getElementById("mensaje").innerHTML = "!Oye! SOPLAPOLL@S que haz cambiado el saludo!";
+        }
+    </script>
+
+</body>
+</html>

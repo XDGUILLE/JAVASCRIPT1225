@@ -1,0 +1,1 @@
+const variable = document.getElementById("variable").innerHTML = "Adios";

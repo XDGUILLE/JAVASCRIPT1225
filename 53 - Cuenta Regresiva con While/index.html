@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #resultado{
+            background-color: #e8f5e9;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Cuenta Regresiva</h2>
+    <p>Ingreser un numero para iniciar la cuenta</p>
+    <input type="number" value="5" min="0" max="20" id="numero">
+    <button onclick="cuentaRegresiva()">Iniciar</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        function cuentaRegresiva(){
+            let numero = parseInt(document.getElementById("numero").value);
+            let elementoResultado = document.getElementById("resultado");
+            let texto = "";
+
+            while(numero >= 0){
+                texto += numero + "...";
+                numero --;
+            }
+
+            texto += " Despegue!!";
+            resultado.innerHTML = texto;
+
+        }
+    </script>
+
+</body>
+</html>

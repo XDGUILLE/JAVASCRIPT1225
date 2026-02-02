@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="tiempoElegido">
+    <button onclick="">Alarma</button>
+    <h1 id="textoAlarma" style="color: red">APAGADO</h1>
+    <script>
+        let elementoSegundos = document.getElementById("tiempoElegido");
+        let elementoTextoAlarma = document.getElementById("textoAlarma");
+
+        function comenzarTiempo() {
+            setTimeout(tiempoCumplido, 1000*elementoSegundos.value); //Funcion propia de JS que despues de cierto tiempo ejecuta algo. Primero colocamos lo que queremos que ejecute y despues el tiempo que queremos que espere en milisegundos.
+        }
+
+        function tiempoCumplido() {
+            elementoTextoAlarma.textContent = "ENCENDIDO";
+            elementoTextoAlarma.style.color = "green";
+            elementoTextoAlarma.style.background = "yellow";
+            elementoTextoAlarma.style.fontSize = "60px";
+        }
+    </script>
+</body>
+</html>

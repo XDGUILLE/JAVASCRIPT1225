@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Perro(raza, edad){  // Funcion Constructora (osea una clase sin colocar Class)
+            this.pata = 4;
+            this.raza = raza;
+            this.edad = edad;
+            this.ladrar = function(){
+                console.log("Guuaau");
+            };
+        }
+
+        let simba = new Perro("shih Tzu", 4);
+        let reina = new Perro("Caniche", 15);
+        let batu = new Perro("Cruza", 8)
+
+
+
+
+    </script>
+</body>
+</html>

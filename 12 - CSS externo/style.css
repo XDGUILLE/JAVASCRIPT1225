@@ -1,0 +1,17 @@
+P{
+    background-color: rgb(236,236,198);
+    text-align: center;
+}
+.normal{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.destacado{
+    background-color: chocolate;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#especial{
+    background-color: #e3e3e3;
+    margin: 100px;
+    padding: 25px;
+}

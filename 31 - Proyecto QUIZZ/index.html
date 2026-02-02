@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZZ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="comenzarCuentaRegresiva()">
+    <h2>Responde a las preguntas lo mas rapido que puedas<span id="cuentaRegresiva"></span></h2>
+    <p>1. Cual es la capital de Francia?</p>
+    <input type="text" id="respuesta1">
+    <p>2. (7*5)+15</p>
+    <input type="text" id="respuesta2">
+    <p>3. Simbolo del Agua</p>
+    <input type="text" id="respuesta3">
+    <p>4. Nombre del Vocalista de "The Beatles"</p>
+    <input type="text" id="respuesta4">
+    <p>5. Año del descubrimiento de America</p>
+    <input type="text" id="respuesta5">
+    <br><br>
+    <button onclick="finalizado()">Termine</button>
+    <br><br>
+    <button onclick="reiniciar()">Volver a Intentar</button>
+    <audio id="audioFinal">
+        <source src="gameover.mp3" type="audio/mpeg">
+        Sonido no habilitado
+    </audio>
+    <script src="script.js"></script>
+</body>
+</html>

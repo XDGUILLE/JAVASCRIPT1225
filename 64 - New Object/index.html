@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let perro1 = new Object({nombre: 'Simba'});
+
+        let coche1 = new Object();
+        
+        coche1.marca = "Chevrolet";
+        coche1["modelo"] = "Prisma";
+        coche1.encender = function(){
+            alert("Coche encendido");
+        };
+
+        let coche2 = new Object.create(coche1);
+    </script>
+</body>
+</html>

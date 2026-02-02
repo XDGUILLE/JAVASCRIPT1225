@@ -1,0 +1,12 @@
+a[href*=".edu"]{
+    background-color: gold;
+}
+
+a{
+    color: blue;
+    text-decoration:underline;
+}
+a:hover{
+    color: red;
+    text-decoration: underline;
+}

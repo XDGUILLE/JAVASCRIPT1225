@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Funciones sin return.
+
+        function sumar(){
+            resultado = 2+3;
+            console.log(resultado);
+        }
+
+        //Funciones con return.
+
+        function restar(){
+            resultado = 2-3;
+            return resultado;
+        }
+
+        sumar();
+        let resta = restar();
+        console.log(resta);
+
+        //Funciones con parametros.
+
+        function multiplicar(num1,num2){
+            return num1 * num2;
+        }
+
+        console.log(multiplicar(2,3));
+        console.log(multiplicar(10,5));
+    </script>
+</body>
+</html>

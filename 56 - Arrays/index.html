@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="listaNotas()">
+    <div class="logo">
+        <img src="logo.png">
+        <h2>Bienvenido a tu boletin estudiantil</h2>
+    </div>
+    <div class="estudiante">
+        <h3>Alumno: Fibonacci</h3>
+    </div>
+    <h4>Notas:</h4>
+    <ul id="listaNotas"></ul>
+    <div class="info">
+        <h4>Promedio: <span id="promedio"></span></h4>
+        <button onclick="calcularPromedio()">Calcular Promedio</button>
+        <h4>Nota mas alta: <span id="nota"></span></h4>
+        <button onclick="notaMasAlta()">Buscar nota mas alta</button>
+        <h4>Hay alguna reprobada? <span id="reprobada"></span></h4>
+        <button onclick="hayMejoramiento()">Consultar Mejoramiento</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

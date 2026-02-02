@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let perro = {
+            nombre: "Simba",
+            raza: "Shih Tzu",
+            edad: 5,
+            ladrar(){
+                console.log("Guuaaau!")
+            }
+        }
+
+        let perro2 = {
+            ladrar: function(){
+                console.log("Guuuauu!")
+            }
+        }
+
+        console.log(perro.edad);
+        perro.ladrar();
+        perro2.ladrar();
+
+        perro.edad = 8;
+        console.log(perro.edad);
+        perro["nombre"] = "Bonny";
+        console.log(perro.nombre);
+
+        function cumplirAnios(){
+            return perro.edad = perro.edad +1;
+        }
+
+        cumplirAnios();
+
+        console.log(perro.edad);
+        
+    </script>
+</body>
+</html>

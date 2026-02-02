@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Papel{
+            constructor(nombre, alto, ancho){
+                this.nombre = nombre;
+                this.alto = alto;
+                this.ancho = ancho;
+            }
+
+            doblarse(){
+                console.log("El papel " + this.nombre + " se esta doblando ");
+            }
+        }
+
+        let papelCarta = new Papel("Carta", 11, 8.5);
+        let papelOficio = new Papel("Oficio", 14, 8.5);
+
+        console.log(papelCarta.alto);
+        console.log(papelOficio.alto);
+
+        papelCarta.doblarse();
+        papelOficio.doblarse();
+
+    </script>
+</body>
+</html>

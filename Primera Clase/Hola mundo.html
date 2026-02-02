@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi primera pagina</title>
+</head>
+<body>
+    <h1>!Hola, soy tu primera pagina!</h1>
+    <p>Bienvenido al mundo de la programacion.</p>
+    <p>JavaScript es increible.</p>
+
+<!--  JavaScript Interno -->
+    <script>
+        alert("Hola Mundo desde JavaScript!");
+    </script>
+
+<!--  Mostrar mensaje en la pagina  -->
+    <h1>JavaScript en Accion!</h1>
+    <p id = "mensaje"></p>
+    <script>
+        document.getElementById("mensaje").innerHTML = "Este mensaje fue creado con JavaScript!";
+    </script>
+
+<!--  Boton interactivo -->
+    <h1>Presiona el Boton!</h1>
+    <button onclick = "saludar()">Click Aqui</button>
+    <p id = "resultado"></p>
+    <script>
+        function saludar(){
+            document.getElementById("resultado").innerHTML = "Hola Presionaste un boton!";
+        }
+    </script>
+
+</body>
+</html>

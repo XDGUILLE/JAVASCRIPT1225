@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: url("C:/Users/debra/Downloads/fondo morado.jpg");
+            color: gray;
+            border:rgb(107, 21, 188) 10px solid;
+            margin: 50px;
+        }
+        h1 {
+            text-align: center;
+            color: rgb(148, 83, 208);
+        }
+        h2 {
+            margin-left: 10px;
+            text-align: left;
+            color: rgb(148, 83, 208);
+        }
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            margin-left: 25px;
+            margin-right: 25px;
+        }
+        li {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            margin-left: 20px;
+        }
+        button {
+            background-color: rgb(107, 21, 188);
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 25px;
+        }
+        #contacto {
+            text-decoration: underline;
+        }
+        #imagen {
+            margin: 5px;
+            border-radius: 50%;
+            border:rgb(107, 21, 188) 5px solid;
+        }
+    </style>
+</head>
+<body>
+    <img
+    id= "imagen"
+    src = "deacon st john.jpg"
+    alt = "Imagen de Deacon St John"
+    width = 200px
+    align = "left" />
+
+    <h1><u>Deacon St John</u></h1>
+    <p style="text-align: center;"><i>Programador / Motorista</i></p>
+    <br>
+    <hr style = "border: rgb(107, 21, 188) 4px solid;">
+    <h2>Perfil</h2>
+    <p>Soy un programador apasionado por la tecnologia y la innovacion. Me encanta crear soluciones creativas y eficientes a traves del codigo. Ademas, disfruto de la emocion y la libertad que me brinda el motociclismo en mi tiempo libre. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, ad repellat repudiandae cumque magnam perferendis qui voluptates ab aperiam suscipit ipsum beatae minima modi itaque omnis assumenda in quaerat praesentium?</p>
+    <h2>Habilidades</h2>
+    <ol>
+        <li>Programacion en varios lenguajes (JavaScript, Python, C++)</li>
+        <li>Desarrollo web (HTML, CSS, React)</li>
+        <li>Resolucion de problemas y pensamiento logico</li>
+        <li>Trabajo en equipo y colaboracion</li>
+        <li>Conduccion segura y mantenimiento de motocicletas</li>
+    </ol>
+    <h2>Experiencia Laboral</h2>
+    <p><i>Web Company</i></p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi porro saepe, ex in debitis voluptatem nihil, animi distinctio ipsum ipsam, ea deserunt modi similique culpa odio illum qui sed quam.
+    Eligendi necessitatibus optio velit earum nam provident excepturi rerum iste error suscipit veniam cupiditate tempora quis minima facere nihil ea, sunt blanditiis quam illum. Quae cum expedita dolore dolor commodi.
+    Eaque, sit voluptates. Labore at quasi porro iste perspiciatis harum similique. Nisi sed optio tempore consequatur eveniet excepturi voluptatibus in, possimus quam atque doloremque error iste laboriosam amet totam cupiditate.</p>
+
+    <button onclick = "mensaje()">Contacto</button>
+    <p id= "contacto"></p>
+    <script>
+        function mensaje(){
+            document.getElementById("contacto").innerHTML = "Correo: deaconstjohn21@gmail.com <br> Telefono: 3234-5267";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+a[href*=".edu"]{
+    background-color: gold;
+}
+a{
+    color: blue;
+    text-decoration: none;
+}
+
+

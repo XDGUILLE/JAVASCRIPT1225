@@ -1,0 +1,8 @@
+.principal::first-line{
+  color: #20b523;
+}
+
+.principal::first-letter{
+  font-size: 200%;
+  color: #900;
+}
