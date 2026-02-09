@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Deportista{
+            #nombre;
+            #apellido;
+            constructor(nombre,apellido){
+                this.nombre = nombre;
+                this.apellido = apellido;
+            }
+            saludar = () => console.log("Hola soy "+this.nombre);
+        }
+
+        class Futbolista extends Deportista{
+            #goles;
+            constructor(nombre,apellido,goles){
+                super(nombre,apellido);
+                this.goles = goles; 
+            }
+
+            get goles(){
+                return this._goles;
+            }
+
+            set goles(nuevosGoles){
+                this._goles = nuevosGoles;
+            }
+        }
+
+        let cristiano = new Futbolista("Cistiano","Ronaldo",900);
+    </script>
+</body>
+</html>
