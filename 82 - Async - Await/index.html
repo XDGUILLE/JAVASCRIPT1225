@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function obtenerTodo(){
+            console.log("Este codigo esta al comienzo");
+
+            let respuestaProductos = await fetch('https://dummyjson.com/products/1');
+            let datosProductos = await respuestaProductos.json();
+
+            console.log("Este codigo esta en medio");
+
+            let respuestaDolar = await fetch('https://open.er-api.com/v6/latest/USD');
+            let datosDolar = await respuestaDolar.json();
+
+            console.log(datosProductos.title);
+            console.log(datosDolar.rates.GTQ);
+            console.log("Este codigo esta al final");
+        }
+
+        obtenerTodo();
+    </script>
+</body>
+</html>
