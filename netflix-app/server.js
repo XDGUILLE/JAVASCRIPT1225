@@ -1,107 +1,92 @@
-// server.js - Backend Node.js + Express + MySQL
-// Academia Fibonacci - Semana 14
-
 const express = require('express');
 const mysql = require('mysql2');
-const path = require('path');
+const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
+const port = 3000;
 
-// ─────────────────────────────────────────────
 // Middleware
-// ─────────────────────────────────────────────
+app.use(cors());
 app.use(express.json());
-app.use(express.static('public')); // Sirve los archivos frontend
+app.use(express.static('public'));
 
-// ─────────────────────────────────────────────
-// Conexion a MySQL
-// ─────────────────────────────────────────────
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',        // Cambia por tu usuario
-  password: '',        // Cambia por tu password
-  database: 'NetflixDB'
+// Conexión MySQL
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',           // CAMBIAR POR TU USUARIO
+    password: '123456',           // CAMBIAR POR TU PASSWORD
+    database: 'NetflixDB'
 });
 
-db.connect((err) => {
-  if (err) {
-    console.error('Error al conectar a MySQL:', err);
-    return;
-  }
-  console.log('Conectado a NetflixDB');
+// Conectar
+connection.connect((err) => {
+    if (err) {
+        console.error('❌ Error conectando a la base de datos:', err);
+        return;
+    }
+    console.log('✅ Conectado a NetflixDB');
 });
 
-// ─────────────────────────────────────────────
-// RUTAS API
-// ─────────────────────────────────────────────
-
-// GET /api/series - Obtener todas las series
+// RUTA 1: Obtener todas las series
 app.get('/api/series', (req, res) => {
-  const sql = 'SELECT * FROM Series ORDER BY titulo';
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error('Error:', err);
-      return res.status(500).json({ error: 'Error al obtener series' });
-    }
-    res.json(results);
-  });
+    const query = 'SELECT * FROM Series ORDER BY titulo';
+    
+    connection.query(query, (err, results) => {
+        if (err) {
+            console.error('Error:', err);
+            res.status(500).json({ error: 'Error al obtener series' });
+            return;
+        }
+        res.json(results);
+    });
 });
 
-// GET /api/series/:id - Obtener serie con episodios (LEFT JOIN)
+// RUTA 2: Obtener una serie con episodios
 app.get('/api/series/:id', (req, res) => {
-  const { id } = req.params;
-  const sql = `
-    SELECT 
-      s.serie_id,
-      s.titulo,
-      s.descripcion,
-      s.año_lanzamiento,
-      s.genero,
-      e.episodio_id,
-      e.titulo AS episodio_titulo,
-      e.temporada,
-      e.duracion,
-      e.rating_imdb
-    FROM Series s
-    LEFT JOIN Episodios e ON s.serie_id = e.serie_id
-    WHERE s.serie_id = ?
-    ORDER BY e.temporada, e.episodio_id
-  `;
-  db.query(sql, [id], (err, results) => {
-    if (err) {
-      console.error('Error:', err);
-      return res.status(500).json({ error: 'Error al obtener la serie' });
-    }
-    res.json(results);
-  });
+    const serieId = req.params.id;
+    const query = `
+        SELECT s.*, 
+            e.episodio_id, e.titulo as episodio_titulo, 
+            e.duracion, e.rating_imdb, e.temporada, 
+            e.descripcion as episodio_descripcion, e.fecha_estreno
+        FROM Series s
+        LEFT JOIN Episodios e ON s.serie_id = e.serie_id
+        WHERE s.serie_id = ?
+        ORDER BY e.temporada, e.episodio_id
+    `;
+    
+    connection.query(query, [serieId], (err, results) => {
+        if (err) {
+            console.error('Error:', err);
+            res.status(500).json({ error: 'Error al obtener serie' });
+            return;
+        }
+        res.json(results);
+    });
 });
 
-// GET /api/series/:id/actores - Obtener actores de una serie
+// RUTA 3: Obtener actores de una serie
 app.get('/api/series/:id/actores', (req, res) => {
-  const { id } = req.params;
-  const sql = `
-    SELECT 
-      a.actor_id,
-      a.nombre,
-      sa.personaje
-    FROM Actores a
-    INNER JOIN Series_Actores sa ON a.actor_id = sa.actor_id
-    WHERE sa.serie_id = ?
-    ORDER BY a.nombre
-  `;
-  db.query(sql, [id], (err, results) => {
-    if (err) {
-      console.error('Error:', err);
-      return res.status(500).json({ error: 'Error al obtener actores' });
-    }
-    res.json(results);
-  });
+    const serieId = req.params.id;
+    const query = `
+        SELECT a.actor_id, a.nombre, a.fecha_nacimiento, ac.personaje
+        FROM Actores a
+        INNER JOIN Actuaciones ac ON a.actor_id = ac.actor_id
+        WHERE ac.serie_id = ?
+        ORDER BY a.nombre
+    `;
+    
+    connection.query(query, [serieId], (err, results) => {
+        if (err) {
+            console.error('Error:', err);
+            res.status(500).json({ error: 'Error al obtener actores' });
+            return;
+        }
+        res.json(results);
+    });
 });
 
-// ─────────────────────────────────────────────
 // Iniciar servidor
-// ─────────────────────────────────────────────
-app.listen(PORT, () => {
-  console.log(`Servidor en http://localhost:${PORT}`);
+app.listen(port, () => {
+    console.log(`🚀 Servidor corriendo en http://localhost:${port}`);
 });
